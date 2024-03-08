@@ -1,0 +1,120 @@
+@use "global" as *;
+
+.price-lists__price-list {
+    @include mq("md") {
+        display: flex;
+    }
+}
+
+.price-lists__price-list:not(:first-child) {
+    margin-top: rem(40);
+
+    @include mq("md") {
+        margin-top: rem(80);
+    }
+}
+
+.price-lists__title-wrapper {
+    background: $blue2;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-top: rem(6.5);
+    padding-bottom: rem(3.5);
+
+    @include mq("md") {
+        flex-direction: column-reverse;
+        width: 28.6%;
+    }
+}
+
+.price-lists__title-img {
+    max-width: rem(24);
+    width: 100%;
+    filter: brightness(1000%);
+
+    @include mq("md") {
+        max-width: rem(64);
+        margin-top: rem(6);
+    }
+}
+
+.price-lists__title {
+    color: $white;
+    margin-top: rem(4);
+    margin-left: rem(8);
+    font-size: rem(16);
+
+    @include mq("md") {
+        margin-left: 0;
+        margin-top: 0;
+    }
+}
+
+.price-lists__dl {
+    color: $black;
+    border: rem(1) solid $blue2;
+    display: flex;
+    flex-wrap: wrap;
+
+    @include mq("md") {
+        width: 71.4%;
+        border-top: none;
+        border-left: none;
+    }
+}
+
+.price-lists__dt {
+    width: 69.5%;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    @include mq("md") {
+        padding: rem(17) rem(15);
+        width: 67.7%;
+        text-align: left;
+        display: block;
+    }
+}
+
+.price-lists__dt--single-row {
+    padding-top: rem(17);
+    padding-bottom: rem(17);
+
+    @include mq("md") {
+        padding-top: rem(17);
+        padding-bottom: rem(17);
+    }
+}
+
+.price-lists__dt:nth-child(odd) {
+    border-top: rem(1) solid $blue2;
+}
+
+.price-lists__dd {
+    border-left: rem(1) solid $blue2;
+    width: 30.5%;
+    padding-top: rem(19);
+    padding-bottom: rem(19);
+    padding-right: rem(15);
+    text-align: right;
+    font-family: 'Noto Sans JP', sans-serif;
+
+    @include mq("md") {
+        width: 32.3%;
+        padding-top: rem(17);
+        padding-bottom: rem(17);
+    }
+}
+
+.price-lists__dd:nth-child(even) {
+    border-top: rem(1) solid $blue2;
+}
+
+.price-lists__dd-text {
+    max-width: rem(70);
+    width: 100%;
+    text-align: right;
+}

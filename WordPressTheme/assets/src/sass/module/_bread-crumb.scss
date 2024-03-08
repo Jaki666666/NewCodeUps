@@ -1,0 +1,75 @@
+@use "global" as *;
+
+.bread-crumb {
+    color: $black;
+    font-size: rem(14);
+}
+
+.bread-crumb__items {
+    display: flex;
+}
+
+.bread-crumb__item {
+    font-family: 'Noto Sans JP', sans-serif;
+}
+
+.bread-crumb__item:nth-child(odd) {
+    margin-left: rem(13);
+}
+
+.bread-crumb__item:first-child {
+    margin-left: 0;
+}
+
+.bread-crumb__item:nth-child(even) {
+    margin-left: rem(8);
+}
+
+.bread-crumb__item--symbol span {
+    position: relative;
+}
+
+.bread-crumb__item--symbol span::before {
+    position: absolute;
+    display: block;
+    content: "";
+    width: rem(6);
+    height: rem(1);
+    background-color: $black;
+    top: rem(8.5);
+    transform: rotate(45deg);
+}
+
+.bread-crumb__item--symbol span::after {
+    position: absolute;
+    display: block;
+    content: "";
+    width: rem(6);
+    height: rem(1);
+    background-color: $black;
+    top: rem(12.5);
+    transform: rotate(-45deg);
+}
+
+// campaignページ{
+.bread-crumb--campaign {
+    padding-top: rem(8);
+}
+
+// priceページ
+.bread-crumb--price {
+    padding-top: rem(8);
+}
+
+// 404ページ
+.bread-crumb--404 {
+    color: $white;
+}
+
+.bread-crumb__item--symbol-404 span::before {
+    background-color: $white;
+}
+
+.bread-crumb__item--symbol-404 span::after {
+    background-color: $white;
+}

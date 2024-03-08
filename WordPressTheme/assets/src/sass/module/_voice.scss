@@ -1,0 +1,43 @@
+@use "global" as *;
+
+.voice__inner {
+    @include mq("md") {
+        position: relative;
+    }
+}
+
+.voice__decoration-fish {
+    display: none;
+
+    @include mq("md") {
+        display: block;
+        position: absolute;
+        max-width: rem(301);
+        top: rem(-115);
+        left: calc(50% - min(47.5vw, rem(620)));
+        filter: brightness(0);
+    }
+}
+
+.voice__voice-cards {
+    margin-top: rem(43.5);
+
+    @include mq("md") {
+        margin-top: rem(30);
+        position: relative;
+    }
+}
+
+.voice-cards__decoration-seahorse{
+    @include mq("md"){
+        filter: grayscale(100%);
+    }
+}
+
+.voice__btn-wrapper {
+    margin-top: rem(40);
+
+    @include mq("md") {
+        margin-top: rem(77);
+    }
+}

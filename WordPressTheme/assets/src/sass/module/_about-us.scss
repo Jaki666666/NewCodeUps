@@ -1,0 +1,166 @@
+@use "global" as *;
+
+// トップページ
+.about-us__inner {
+    position: relative;
+}
+
+.about-us__decoration {
+    display: none;
+
+    @include mq("md") {
+        display: block;
+        position: absolute;
+        max-width: rem(194);
+        width: 100%;
+        top: rem(680);
+        right: calc(50% - min(47.5vw, rem(637)));
+        z-index: 2;
+        filter: brightness(0);
+    }
+}
+
+.about-us__content {
+    margin-top: rem(28);
+    position: relative;
+
+    @include mq("md") {
+        margin-top: rem(40);
+    }
+}
+
+.about-us__img-wrapper {
+    position: relative;
+    padding-top: rem(26);
+
+    @include mq("md") {
+        padding-top: rem(79);
+    }
+}
+
+.about-us__img-wrapper::before {
+    background-image: url(../images/common/about-us-img-left-pc.jpg);
+    background-position: center;
+    background-size: cover;
+    content: "";
+    display: block;
+    height: 91.5%;
+    position: absolute;
+    width: 37%;
+    z-index: 1;
+    top: 0;
+}
+
+.about-us__img-wrapper img {
+    width: 81.5%;
+    margin-left: 18.5%;
+}
+
+.about-us__text {
+    margin-top: rem(40.5);
+
+    @include mq("md") {
+        position: absolute;
+        top: rem(160);
+        left: 26.3%;
+        z-index: 2;
+        left: 18.4%;
+        display: flex;
+    }
+}
+
+.about-us__slogan {
+    font-size: rem(40);
+    color: $blue2;
+    line-height: 1;
+
+    @include mq("md") {
+        font-size: rem(80);
+        color: $white;
+        line-height: 1.25;
+        width: 49%;
+    }
+}
+
+.about-us__text-bottom {
+    margin-top: rem(18);
+
+    @include mq("md") {
+        width: 46.5%;
+        margin-top: rem(2);
+        margin-left: rem(1.5);
+    }
+}
+
+.about-us__explanation {
+    color: $black;
+
+    @include mq("md") {
+        margin-left: rem(7);
+        color: $white;
+    }
+}
+
+.about-us__btn-wrapper {
+    margin-top: rem(47.5);
+
+    @include mq("md") {
+        margin-top: rem(37);
+    }
+}
+
+// About usページ
+.about-us__content--about-us {
+    margin-top: 0;
+
+    @include mq("md") {
+        margin-top: 0;
+    }
+}
+
+.about-us__img-wrapper--about-us::before {
+    display: none;
+
+    @include mq("md") {
+        display: block;
+    }
+}
+
+.about-us__img-wrapper--about-us img {
+    width: 100%;
+    margin-left: 0;
+
+    @include mq("md") {
+        margin-left: 18.6%;
+        width: 81.8%;
+    }
+}
+
+.about-us__text--about-us {
+    margin-top: rem(43);
+
+    @include mq("md") {
+        top: rem(158);
+        left: 18.5%;
+    }
+}
+
+.about-us__slogan--about-us {
+    position: absolute;
+    top: rem(50);
+    left: rem(24);
+    color: $white;
+    z-index: 3;
+    font-size: 10.65vw;
+
+    @include mq("md") {
+        position: initial;
+        font-size: rem(80);
+    }
+}
+
+.about-us__text-bottom--about-us {
+    @include mq("md") {
+        margin-top: rem(27);
+    }
+}

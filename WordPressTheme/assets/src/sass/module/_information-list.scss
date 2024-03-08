@@ -1,0 +1,19 @@
+@use "global" as *;
+
+// informationページ
+.information-list__sub-page-decoration{
+    top:rem(-93);
+
+    @include mq("md"){
+        top: rem(-70);
+        left:  calc(50% - min(47.5vw, rem(620)));
+    }
+}
+
+.information-list__information-cards{
+    margin-top: rem(16);
+
+    @include mq("md"){
+       margin-top: rem(24);
+    }
+}

@@ -1,0 +1,9 @@
+@use "global" as *;
+
+.thanks-footer {
+    margin-top: rem(142.5);
+
+    @include mq("md"){
+       margin-top: rem(118.5);
+    }
+}

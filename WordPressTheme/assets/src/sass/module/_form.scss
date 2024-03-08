@@ -1,0 +1,376 @@
+@use "global" as *;
+
+.form__part {
+    border-bottom: rem(1) dashed $blue2;
+    padding-bottom: rem(23.5);
+    font-family: 'Noto Sans JP', sans-serif;
+    margin-top: rem(22.5);
+
+    @include mq("md") {
+        display: flex;
+        padding-bottom: rem(39.5);
+        margin-top: rem(14.5);
+    }
+}
+
+.form__part:first-of-type {
+    margin-top: 0;
+}
+
+.form__part:nth-of-type(5) {
+    position: relative;
+}
+
+.form__part:nth-of-type(5)::before {
+    position: absolute;
+    display: block;
+    content: "";
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-right: 5px solid transparent;
+    border-left: 5px solid transparent;
+    border-top: 9px solid $blue2;
+    border-bottom: 0;
+    top: rem(49.5);
+    right: rem(9);
+    z-index: -1;
+
+    @include mq("md") {
+        top: rem(33);
+    }
+}
+
+.form__part--agree {
+    font-size: rem(14);
+    margin-top: rem(40);
+    border-bottom: none;
+    position: relative;
+    display: flex;
+    justify-content: center;
+
+    @include mq("md") {
+        margin-top: rem(75);
+    }
+}
+
+.form__label {
+    font-weight: $bold;
+    color: black;
+    font-size: rem(16);
+    position: relative;
+    display: inline-block;
+
+    @include mq("md") {
+        margin-top: 24px;
+    }
+}
+
+.form__label::before {
+    position: absolute;
+    content: "必須";
+    width: rem(61);
+    height: rem(21);
+    background-color: $blue2;
+    color: $white;
+    font-size: rem(12);
+    top: rem(2);
+    right: rem(-69);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    letter-spacing: 0.4em;
+    padding-left: rem(4);
+}
+
+.form__part:nth-of-type(5) .form__label::before {
+    display: none;
+}
+
+.form__blank {
+    width: 100%;
+    margin-top: rem(16);
+    line-height: 2;
+
+    @include mq("md") {
+        width: 68.5%;
+        margin-left: auto;
+        margin-top: rem(25);
+    }
+}
+
+.form__blank--first {
+    @include mq("md") {
+        margin-top: 0;
+    }
+}
+
+.form__blank::placeholder {
+    color: $light-green;
+}
+
+.form__blank span {
+    display: block;
+}
+
+.form__blank input {
+    width: 100%;
+    padding: rem(3) rem(15);
+    border: 0.0625rem solid $blue2;
+}
+
+.form__blank input::placeholder {
+    color: $light-green;
+}
+
+.form__blank--textarea textarea {
+    padding: rem(3) rem(15);
+    width: 100%;
+}
+
+.form__part input[type=checkbox] {
+    display: none;
+}
+
+.form__check-box-wrapper {
+    margin-top: rem(15);
+
+    @include mq("md") {
+        width: 68.5%;
+        margin-left: auto;
+        margin-top: rem(23);
+    }
+}
+
+.form__check-box-wrapper label {
+    cursor: pointer;
+    display: block;
+    padding-left: rem(22);
+    position: relative;
+    width: auto;
+    margin-top: rem(4);
+}
+
+.wpcf7-list-item-label::before {
+    border: rem(1) solid $blue2;
+    content: '';
+    display: block;
+    height: rem(14);
+    position: absolute;
+    top: rem(5);
+    left: 0;
+    width: rem(14);
+}
+
+.wpcf7-list-item-label::after {
+    border-right: rem(2) solid $red;
+    border-bottom: rem(2) solid $red;
+    content: '';
+    display: block;
+    height: rem(10);
+    left: rem(5);
+    opacity: 0;
+    position: absolute;
+    top: rem(5.5);
+    transform: rotate(54deg);
+    width: rem(5);
+}
+
+.form__check-box-wrapper input[type="checkbox"]:checked+.wpcf7-list-item-label::after {
+    opacity: 1;
+}
+
+.form__check-box-wrapper span {
+    margin: 0;
+}
+
+.form__checkbox--agree {
+    padding-left: rem(30);
+
+    @include mq("md") {
+        padding-left: rem(38);
+    }
+}
+
+.form__checkbox--agree .wpcf7-list-item {
+    margin: 0;
+}
+
+.form__checkbox--agree .wpcf7-list-item-label {
+    padding-left: rem(31);
+    padding-right: rem(31);
+    display: block;
+}
+
+.form__checkbox--agree .wpcf7-list-item-label::before {
+    width: rem(22);
+    height: rem(22);
+    top: rem(-0.5);
+    left: rem(1);
+
+    @include mq("md") {
+        left: rem(-8);
+    }
+}
+
+.form__checkbox--agree .wpcf7-list-item-label::after {
+    height: rem(15.7);
+    width: rem(7.85);
+    top: 0;
+    left: rem(8);
+
+    @include mq("md") {
+        left: rem(-1);
+        top: rem(1);
+    }
+}
+
+.form__checkbox--agree input[type="checkbox"]:checked+.wpcf7-list-item-label::after {
+    opacity: 1;
+}
+
+.form__select {
+    font-size: rem(12);
+    border: rem(1) solid $blue2;
+    width: 100%;
+    margin-top: rem(13.5);
+
+    @include mq("md") {
+        width: 68.5%;
+        margin-left: auto;
+        margin-top: rem(21);
+    }
+}
+
+.form__select span {
+    display: block;
+}
+
+.form__select select {
+    width: 100%;
+    padding: rem(10) rem(7);
+
+    @include mq("md") {
+        padding-top: rem(5);
+        padding-bottom: rem(5);
+    }
+}
+
+.form__blank--textarea {
+    resize: none;
+    height: rem(200);
+}
+
+.form__blank--textarea p,
+.form__blank--textarea span,
+.form__blank--textarea textarea {
+    height: 100%;
+}
+
+.form__blank--textarea textarea {
+    resize: none;
+    border: 0.0625rem solid $blue2;
+}
+
+.form__btn-wrapper {
+    margin-top: rem(2);
+}
+
+.form__btn-wrapper p::before {
+    content: "";
+    position: absolute;
+    display: block;
+    background: $white;
+    width: rem(40);
+    height: rem(1);
+    top: rem(24);
+    left: rem(102);
+}
+
+.form__btn-wrapper p::after {
+    content: "";
+    position: absolute;
+    display: block;
+    background: $white;
+    width: rem(10);
+    height: rem(1);
+    transform: rotate(45deg);
+    top: rem(21);
+    left: rem(134);
+}
+
+.btn:hover p::before {
+    background: $blue2;
+}
+
+.btn:hover p::after {
+    background: $blue2;
+}
+
+.wpcf7-list-item {
+    display: block;
+}
+
+.wpcf7-spinner {
+    display: none;
+}
+
+.wpcf7-submit {
+    font-size: rem(14);
+    color: $white;
+    padding-top: rem(15);
+    padding-bottom: rem(15);
+    padding-left: rem(51);
+    width: rem(206);
+    text-align: left;
+}
+
+.wpcf7-submit:hover {
+    cursor: pointer !important;
+}
+
+.btn:hover .wpcf7-submit {
+    color: $blue2;
+}
+
+// エラーメッセージ,エラーアニメーション
+.wpcf7-response-output {
+    border: none !important;
+    color: $red;
+    font-size: rem(14);
+    line-height: 1.4;
+    text-indent: -1em;
+
+    @include mq("md"){
+       text-align: center;
+    }
+}
+
+.wpcf7 form .wpcf7-response-output {
+    padding-left: rem(67);
+    padding-right: rem(53);
+    margin-bottom: rem(34);
+
+    @include mq("md") {
+        padding-left: rem(78);
+        margin-bottom: rem(10);
+    }
+}
+
+.wpcf7-not-valid-tip {
+    display: none !important;
+}
+
+.wpcf7-not-valid {
+    border: rem(1) solid $red !important;
+    background: rgba(201, 72, 0, 0.2);
+}
+
+.form__blank .wpcf7-not-valid::placeholder {
+    color: $white;
+}
+
+.wpcf7-not-valid .wpcf7-list-item-label::before {
+    border: rem(1) solid $red;
+    background: rgba(201, 72, 0, 0.2);
+}

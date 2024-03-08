@@ -1,0 +1,9 @@
+@use "global" as *;
+
+.sub-page-content {
+    margin-top: rem(51);
+
+    @include mq("md") {
+        margin-top: rem(149);
+    }
+}

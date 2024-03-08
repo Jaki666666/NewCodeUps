@@ -1,0 +1,201 @@
+@use "global" as *;
+
+.campaign {
+    position: relative;
+    padding-bottom: rem(7);
+    overflow: hidden;
+}
+
+.campaign__swiper-btn-wrapper {
+    display: none;
+
+    @include mq("md") {
+        position: absolute;
+        top: rem(32);
+        display: flex;
+        top: rem(6);
+        right: 12.5%;
+    }
+}
+
+.campaign__swiper-button-prev {
+    left: rem(-89);
+}
+
+.campaign__swiper-button-next {
+    margin-left: rem(80);
+}
+
+.campaign__btn-arrow{
+    @include mq("md"){
+       z-index: -1;
+    }
+}
+
+.campaign__btn-arrow::before {
+    display: block;
+    content: "";
+    position: absolute;
+    width: rem(40);
+    height: rem(1.5);
+    background-color: $blue2;
+    top: rem(42);
+    transition:background-color 0.3s;
+}
+
+.campaign__btn-arrow.is-active::before{
+    background-color: $white;
+}
+
+.campaign__btn-arrow--prev::before {
+    left: rem(19);
+}
+
+.campaign__btn-arrow--next::before {
+    left: rem(180);
+}
+
+.campaign__btn-arrow::after {
+    display: block;
+    content: "";
+    position: absolute;
+    width: rem(8);
+    height: rem(1.5);
+    background-color: $blue2;
+    transform: rotate(45deg);
+    left: rem(52);
+    top: rem(39);
+    transition:background-color 0.3s;
+}
+
+.campaign__btn-arrow.is-active::after{
+    background-color: $white;
+}
+
+.campaign__btn-arrow--prev::after {
+    transform: rotate(135deg);
+    left: rem(19);
+}
+
+.campaign__btn-arrow--next::after {
+    left: rem(213);
+}
+
+.campaign__card {
+    height: 100%;
+    flex-direction: column;
+}
+
+.campaign__btn-wrapper {
+    margin-top: rem(20);
+
+    @include mq("md") {
+        margin-top: rem(60.5);
+    }
+}
+
+// swiper
+.campaign {
+    /* 矢印カスタマイズ */
+    .swiper-button-prev,
+    .swiper-button-next {
+        height: rem(80);
+        width: rem(80);
+        border: rem(1.5) solid $blue2;
+        border-radius: 50%;
+        position: static;
+        margin-top: 0;
+    }
+
+    .swiper-button-prev {
+        left: rem(-89);
+    }
+
+    .swiper-button-next {
+        left: rem(71);
+    }
+
+    /* 矢印カスタマイズ */
+    .swiper-button-prev::after,
+    .swiper-button-next::after {
+        background-repeat: no-repeat;
+        background-size: contain;
+        content: "";
+        height: rem(80);
+        margin: auto;
+        width: rem(80);
+    }
+
+    .swiper {
+        margin-top: rem(28);
+        padding-bottom: rem(20);
+        margin-right: calc(50% - 50vw);
+
+        @include mq("md") {
+            margin-top: rem(40);
+        }
+    }
+
+    .swiper-slide {
+        height: auto;
+    }
+}
+
+// blogページ
+.campaign__cards--blog-page {
+    margin-top: rem(24);
+}
+
+.campaign__cards--blog-page .card__text {
+    padding: rem(16) rem(23) rem(17.5) rem(23);
+
+    @include mq("md") {
+        padding-top: rem(12);
+        padding-bottom: rem(19);
+    }
+}
+
+.campaign__cards--blog-page .card:not(:first-child) {
+    margin-top: rem(40);
+}
+
+.campaign__cards--blog-page .card__price-text {
+    @include mq("md") {
+        font-size: rem(14);
+        margin-top: rem(9);
+    }
+}
+
+.campaign__cards--blog-page .card__price {
+    @include mq("md") {
+        margin-top: rem(3);
+    }
+}
+
+.campaign__cards--blog-page .card__normal-price {
+    @include mq("md") {
+        font-size: min(rem(20), 2.75vw);
+        margin-top: 4.5%;
+    }
+}
+
+.campaign__cards--blog-page .card__normal-price::before {
+    @include mq("md") {
+        width: 103%;
+    }
+}
+
+.campaign__cards--blog-page .card__discounted-price {
+    @include mq("md") {
+        font-size: min(rem(32), 2.75vw);
+        margin-left: rem(18);
+    }
+}
+
+.campaign__btn-wrapper--blog-page {
+    margin-top: rem(40);
+
+    @include mq("md") {
+        margin-top: rem(42);
+    }
+}

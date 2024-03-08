@@ -1,0 +1,33 @@
+@use "global" as *;
+
+.terms-of-service {
+    color: $black;
+}
+
+.terms-of-service h2 {
+    font-weight: $medium;
+
+    @include mq("md") {
+        font-size: rem(32);
+    }
+}
+
+.terms-of-service p {
+    line-height: 2;
+}
+
+.terms-of-service p:first-of-type {
+    margin-top: rem(39);
+}
+
+.terms-of-service p:last-of-type {
+    margin-top: rem(29);
+}
+
+.terms-of-service ol {
+    line-height: 2;
+    list-style: auto;
+    margin-top: rem(29);
+    padding-left: rem(23);
+    font-family: 'Noto Sans JP', sans-serif;
+}

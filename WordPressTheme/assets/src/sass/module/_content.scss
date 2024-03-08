@@ -1,0 +1,57 @@
+@use "global" as *;
+
+.content__inner {
+    position: relative;
+}
+
+.content__sub-page-decoration{
+    filter: brightness(0);
+}
+
+// campaignページ
+.content__campaign-cards {
+    margin-top: rem(40);
+    padding-left: rem(32);
+    padding-right: rem(32);
+
+    @include mq("md") {
+        padding-left: 0;
+        padding-right: 0;
+    }
+}
+
+.content__pagination {
+    margin-top: rem(78);
+}
+
+// about usページ
+.content__about-us {
+    @include mq("md") {
+        margin-top: rem(149);
+    }
+}
+
+// blogページ
+.content__inner--blog {
+    @include mq("md") {
+        max-width: rem(1130);
+        padding-left: 25px;
+        padding-right: 13px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+}
+
+// voiceページ
+.content__voice-cards {
+    margin-top: rem(40);
+}
+
+// faqページ
+.content__price-lists {
+    margin-top: rem(51);
+
+    @include mq("md") {
+        margin-top: rem(149);
+    }
+}

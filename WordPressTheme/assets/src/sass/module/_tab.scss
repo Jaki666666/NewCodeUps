@@ -1,0 +1,74 @@
+@use "global" as *;
+
+.tab {
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+
+    .is-active {
+        background-color: $blue2;
+        color: $white;
+    }
+}
+
+.tab__item {
+    padding: rem(8.5) rem(16);
+    cursor: pointer;
+    text-align: center;
+    font-size: rem(14);
+    color: $blue2;
+    box-shadow: 0 rem(4) rem(4) 0 rgba(0, 0, 0, 0.25);
+    transition: background-color 0.3s;
+    border: rem(2) solid $blue2;
+    background: $white;
+
+    @include mq("md") {
+        font-size: rem(24);
+        padding: rem(13) rem(30);
+        text-align: right;
+        position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border: rem(3) solid $blue2;
+    }
+}
+
+.tab__item:hover {
+    background-color: $blue2;
+}
+
+.tab__item:nth-child(2) {
+    @include mq("md") {
+        padding-left: rem(18);
+        padding-right: rem(18);
+    }
+}
+
+.tab__img {
+    max-width: rem(64);
+    filter: brightness(0);
+    transition: filter 0.2s;
+}
+
+.tab__item.is-active .tab__img {
+    filter: brightness(3);
+}
+
+.tab__item:hover .tab__img {
+    filter: brightness(3);
+}
+
+.tab__text {
+    transition: color 0.3s;
+
+    @include mq("md") {
+        margin-left: rem(8);
+        font-size: rem(24);
+        font-size: min(rem(24), 1.95vw);
+    }
+}
+
+.tab__item:hover .tab__text {
+    color: $white;
+}

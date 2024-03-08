@@ -1,0 +1,64 @@
+@use "global" as *;
+
+.sub-page-decoration {
+    max-width: rem(120);
+    width: 100%;
+    display: block;
+    position: absolute;
+    top: rem(-24);
+    z-index: -1;
+
+    @include mq("md") {
+        max-width: rem(301);
+        top: rem(-70);
+        left: calc(50% - min(47.5vw, 54.9%));
+    }
+}
+
+// about usページ
+.sub-page-decoration--about-us {
+    top: rem(2);
+}
+
+// blogページ
+.sub-page-decoration--blog {
+    left: rem(15);
+    filter: opacity(0.4) brightness(0);
+
+    @include mq("md") {
+        top: rem(-70);
+    }
+}
+
+// priceページ
+.sub-page-decoration--700 {
+    @include mq("md") {
+        left: calc(50% - min(47.5vw, 82.7%));
+    }
+}
+
+// contactページ
+.sub-page-decoration--contact{
+    filter: opacity(0.4) brightness(0);
+}
+
+// site-mapページ
+.sub-page-decoration--site-map{
+    filter: opacity(0.4) brightness(0);
+}
+
+// privacy-policyページ
+.sub-page-decoration--privacy-policy{
+    filter: opacity(0.4) brightness(0);
+}
+
+// 利用規約ページ
+.sub-page-decoration--terms-of-service{
+    filter: opacity(0.4) brightness(0);
+}
+
+.sub-page-decoration--800 {
+    @include mq("md") {
+        left: calc(50% - min(47.5vw, 72.9%));
+    }
+}

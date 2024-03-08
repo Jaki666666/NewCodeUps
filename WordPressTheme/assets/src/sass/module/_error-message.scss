@@ -1,0 +1,51 @@
+@use "global" as *;
+
+.error-message {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.error-message img {
+    position: absolute;
+    max-width: rem(345);
+    aspect-ratio: 1 / 1;
+    width: 100%;
+    top: rem(-76);
+    z-index: -1;
+    filter: brightness(6);
+
+    @include mq("md") {
+        max-width: rem(698);
+        top: rem(-141);
+        left: 2.2%;
+    }
+}
+
+.error-message__number {
+    font-size: rem(80);
+    color: $white;
+    letter-spacing: 0.42em;
+    text-indent: 0.42em;
+
+    @include mq("md") {
+        font-size: rem(160);
+    }
+}
+
+.error-message__apology {
+    color: $white;
+
+    @include mq("md") {
+        margin-top: rem(24);
+    }
+}
+
+.error-message__btn-wrapper {
+    margin-top: rem(40);
+
+    @include mq("md") {
+        margin-top: rem(80);
+    }
+}

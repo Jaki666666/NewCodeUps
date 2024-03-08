@@ -1,0 +1,9 @@
+@use "global" as *;
+
+.about-us-footer{
+    margin-top: rem(105);
+
+    @include mq("md"){
+       margin-top: rem(160);
+    }
+}

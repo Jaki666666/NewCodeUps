@@ -1,0 +1,44 @@
+@use "global" as *;
+
+.sidebar {
+    margin-top: rem(81);
+
+    @include mq("md") {
+        width: 27.2%;
+        margin-top: 0;
+    }
+}
+
+.sidebar__inner {
+    padding-left: 25px;
+    padding-right: 25px;
+
+    @include mq("md") {
+        padding-left: 0;
+        padding-right: 0;
+    }
+}
+
+.sidebar__review {
+    margin-top: rem(80);
+}
+
+.sidebar__blog-campaign {
+    margin-top: rem(85);
+}
+
+.sidebar__archive {
+    margin-top: rem(84.5);
+}
+
+.sidebar__accordion {
+    margin-top: rem(24);
+}
+
+.sidebar__accordion--not-first {
+    margin-top: rem(4);
+}
+
+.sidebar__title span {
+    margin-top: rem(6);
+}

@@ -1,0 +1,11 @@
+@use "global" as *;
+
+.message{
+    color: $black;
+    text-align: center;
+}
+
+.message__text:last-child{
+    margin-top: rem(36.5);
+    line-height: 1.43; 
+}

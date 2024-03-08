@@ -1,0 +1,128 @@
+@use "global" as *;
+
+.gallery {
+    @include mq("md") {
+        position: relative;
+    }
+}
+
+.gallery__decoration {
+    @include mq("md") {
+        max-width: rem(301);
+        position: absolute;
+        top: rem(-75);
+        right: calc(50% - min(50vw, rem(640)));
+        filter: brightness(0);
+    }
+}
+
+.gallery__items {
+    display: grid;
+    gap: rem(8);
+    margin-top: rem(40);
+    grid-auto-flow: dense;
+
+    @include mq("md") {
+        grid-template-columns: repeat(11, 1fr);
+        margin-top: rem(78.5);
+    }
+}
+
+.gallery__item:nth-child(6n+1) {
+    @include mq("md") {
+        grid-row: span 2;
+        grid-column: span 5;
+    }
+}
+
+.gallery__item:nth-child(6n+2) {
+    @include mq("md") {
+        grid-row: span 1;
+        grid-column: span 6;
+    }
+}
+
+.gallery__item:nth-child(6n+3) {
+    @include mq("md") {
+        grid-row: span 1;
+        grid-column: span 6;
+    }
+}
+
+.gallery__item:nth-child(6n+4) {
+    @include mq("md") {
+        grid-row: span 1;
+        grid-column: span 6;
+    }
+}
+
+.gallery__item:nth-child(6n+5) {
+    @include mq("md") {
+        grid-row: span 1;
+        grid-column: span 6;
+    }
+}
+
+.gallery__item:nth-child(6n+6) {
+    @include mq("md") {
+        grid-row: span 2;
+        grid-column: span 5;
+    }
+}
+
+.gallery__items img {
+    height: 100%;
+    object-fit: cover;
+}
+
+.gallery__item:nth-child(6n+1) img {
+    aspect-ratio: 345 / 523;
+
+    @include mq("md") {
+        aspect-ratio: 492 / 746;
+    }
+}
+
+.gallery__item:nth-child(6n+2) img {
+    aspect-ratio: 345 / 219;
+
+    @include mq("md") {
+        aspect-ratio: 580 / 369;
+    }
+}
+
+.gallery__item:nth-child(6n+3) img {
+    aspect-ratio: 345 / 219;
+
+    @include mq("md") {
+        aspect-ratio: 580 / 369;
+    }
+}
+
+.gallery__item:nth-child(6n+4) img {
+    aspect-ratio: 345 / 219;
+
+    @include mq("md") {
+        aspect-ratio: 580 / 369;
+    }
+}
+
+.gallery__item:nth-child(6n+5) img {
+    aspect-ratio: 345 / 219;
+
+    @include mq("md") {
+        aspect-ratio: 580 / 369;
+    }
+}
+
+.gallery__item:nth-child(6n+6) img {
+    aspect-ratio: 345 / 523;
+
+    @include mq("md") {
+        aspect-ratio: 492 / 746;
+    }
+}
+
+.gallery__items img:hover {
+    cursor: pointer;
+}

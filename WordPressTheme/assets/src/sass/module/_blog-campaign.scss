@@ -1,0 +1,94 @@
+@use "global" as *;
+
+.blog-campaign__card {
+    box-shadow: rem(2) rem(2) rem(10) 0 rgba(0, 0, 0, 0.25);
+    margin-top: rem(40.5);
+    border: rem(1.5) solid $blue2;
+}
+
+.blog-campaign__card--first{
+    margin-top: rem(24);
+}
+
+.blog-campaign__card-img {
+    width: 100%;
+    object-fit: cover;
+    aspect-ratio: 294 / 188;
+}
+
+.blog-campaign__card-text {
+    padding: rem(17.5) rem(23) rem(24.5) rem(23);
+}
+
+.blog-campaign__card-title {
+    color: $black;
+    padding-bottom: rem(5);
+    border-bottom: rem(1) solid $blue2;
+    font-weight: $medium;
+    text-align: center;
+}
+
+.blog-campaign__price-text {
+    color: $black;
+    font-size: rem(14);
+    text-align: center;
+    margin-top: rem(9);
+    font-family: 'Noto Sans JP', sans-serif;
+
+    @include mq("md") {
+        font-size: rem(14);
+    }
+}
+
+.blog-campaign__price {
+    display: flex;
+    font-weight: $bold;
+    font-family: 'Noto Sans JP', sans-serif;
+    line-height: 1;
+    align-items: center;
+    margin-top: rem(9);
+}
+
+.blog-campaign__normal-price {
+    color: $black;
+    margin-top: 3.5%;
+    margin-left: rem(19);
+    position: relative;
+    font-size: 5.3vw;
+    letter-spacing: -0.015em;
+
+    @include mq("md") {
+        margin-top: 4%;
+        font-size: rem(20);
+        letter-spacing: -0.027em;
+    }
+}
+
+.blog-campaign__normal-price::before {
+    content: "";
+    display: block;
+    position: absolute;
+    height: 14.2%;
+    width: 20.3vw;
+    background: $red;
+    top: 42.5%;
+
+    @include mq("md") {
+        width: rem(76);
+    }
+}
+
+.blog-campaign__discounted-price {
+    color: $blue2;
+    margin-left: 7%;
+    font-size: 8.5vw;
+    letter-spacing: -0.023em;
+
+    @include mq("md"){
+       font-size: rem(32);
+    }
+}
+
+.blog-campaign__btn-wrapper {
+    margin-top: rem(41);
+}

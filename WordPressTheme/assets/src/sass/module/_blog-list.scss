@@ -1,0 +1,41 @@
+@use "global" as *;
+
+// ブログページ
+.blog-list {
+    color: $black;
+}
+
+.blog-list__inner{
+    position:relative;
+
+    @include mq("md") {
+        display: flex;
+        justify-content: space-between;
+    }
+}
+
+.blog-list__sub-page-decoration {
+    top: rem(-24);
+
+    @include mq("md") {
+        top: rem(-37);
+        left: calc(50% - min(47.5vw, 54.9%));
+    }
+}
+
+.blog-list__first {
+    @include mq("md") {
+        width: 65.4%;
+    }
+}
+
+.blog-list__first .card__img--blog {
+    @include mq("md") {
+        max-width: 100%;
+    }
+}
+
+.blog-list__second--blog-detail {
+    margin-top: rem(80);
+}
+

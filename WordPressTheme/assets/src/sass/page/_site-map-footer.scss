@@ -1,0 +1,9 @@
+@use "global" as *;
+
+.site-map-footer{
+    margin-top: rem(104.5);
+
+    @include mq("md"){
+       margin-top: rem(159.5);
+    }
+}

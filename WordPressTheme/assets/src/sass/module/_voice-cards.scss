@@ -1,0 +1,23 @@
+@use "global" as *;
+
+.voice-cards {
+    display: grid;
+    gap: rem(40);
+
+    @include mq("md") {
+        grid-template-columns: repeat(2, 1fr);
+        grid-row-gap:rem(80);
+    }
+}
+
+.voice-cards__decoration-seahorse {
+    display: none;
+
+    @include mq("md") {
+        display: block;
+        position: absolute;
+        max-width: rem(71);
+        top: 110%;
+        left: 93.4%;
+    }
+}

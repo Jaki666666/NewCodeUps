@@ -1,0 +1,46 @@
+@use "global" as *;
+
+.loading{
+    width: 100vw;
+    height: 100vh;
+    position: fixed;
+    z-index: 100;
+    background:$white;
+    color: $blue2;
+}
+
+.loading__title {
+    text-align: center;
+    z-index: 15;
+    position: absolute;
+    width: 100%;
+    top: 43.6%;
+    // 文字を立体的にする
+    text-shadow:
+        0 rem(1) $gray,
+        rem(1) rem(2) $gray,
+        rem(2) rem(3) $gray,
+        rem(3) rem(4) $gray,
+        rem(4) rem(5) $gray,
+        rem(5) rem(10) rem(8) $black;
+
+    @include mq("md") {
+        top: 41.2%;
+    }
+}
+
+.loading__main-title {
+    font-size: rem(40);
+    font-weight: $regular;
+    letter-spacing: 0.52em;
+    text-indent: 0.52em;
+
+    @include mq("md") {
+        font-size: rem(80);
+    }
+}
+
+.loading__sub-title {
+    font-size: rem(20);
+}
+

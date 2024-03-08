@@ -1,0 +1,9 @@
+@use "global" as *;
+
+.price-contact{
+    margin-top: rem(105.5);
+
+    @include mq("md"){
+       margin-top: rem(141);
+    }
+}

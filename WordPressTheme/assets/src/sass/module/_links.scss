@@ -1,0 +1,45 @@
+@use "global" as *;
+
+.links{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    text-align: center;
+    grid-row-gap: rem(16);
+    grid-column-gap: rem(21);
+    z-index: 5;
+    position: relative;
+
+    @include mq("md") {
+        display: flex;
+        grid-column-gap: rem(32);
+    }
+}
+
+.links__item {
+    color: $blue2;
+    border: rem(1) solid $blue2;
+    font-size: rem(14);
+    background: $white;
+    transition: background-color 0.3s, color 0.3s;
+
+    @include mq("md") {
+        max-width: rem(162);
+        width: 100%;
+    }
+}
+
+.links__item:hover{
+    background:$blue2;
+    color: $white;
+}
+
+.links__item.is-active {
+    background-color: $blue2;
+    color: $white;
+}
+
+.links__item a{
+    padding-top: rem(5.5);
+    padding-bottom: rem(5.5);
+    display: block;
+}
