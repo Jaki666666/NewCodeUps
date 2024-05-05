@@ -25,31 +25,45 @@
 
     <?php
     // フロントページの場合にのみローディング画面を表示
-    if (is_front_page()) {
-      echo '<style>.loading { display: block; }</style>';
-    } else {
-      echo '<style>.loading { display: none; }</style>';
-    }
-    ?>
+    if (is_front_page()) : ?>
+      <style>
+        .loading {
+          display: block;
+        }
+      </style>
+    <?php else : ?>
+      <style>
+        .loading {
+          display: none;
+        }
+      </style>
+    <?php endif; ?>
 
     <div class="loading-second" id="loading-second">
       <div class="loading-second__top"></div>
-      <img src="<?php echo get_theme_file_uri('dist/assets/images/common/wave.png'); ?>" alt="波の絵">
+      <img src="<?php echo get_theme_file_uri(''); ?>/dist/assets/images/common/wave.png" alt="波の絵">
     </div>
 
     <?php
     // フロントページの場合にのみローディング画面を表示
-    if (is_front_page()) {
-      echo '<style>.loading-second { display: block; }</style>';
-    } else {
-      echo '<style>.loading-second { display: none; }</style>';
-    }
-    ?>
+    if (is_front_page()) : ?>
+      <style>
+        .loading-second {
+          display: block;
+        }
+      </style>
+    <?php else : ?>
+      <style>
+        .loading-second {
+          display: none;
+        }
+      </style>
+    <?php endif; ?>
 
     <div class="header__inner">
       <h1 class="header__title">
         <a href="<?php echo esc_url(home_url('/')); ?>">
-          <img src="<?php echo get_theme_file_uri('dist/assets/images/common/blue-grow.png'); ?>" alt="サイトロゴ">
+          <img src="<?php echo get_theme_file_uri(''); ?>/dist/assets/images/common/blue-grow.png" alt="サイトロゴ">
         </a>
       </h1>
 
@@ -128,19 +142,21 @@
               <div class="nav__first">
                 <ul class="nav__items">
                   <li class="nav__item nav__item--page-link">
-                    <img class="nav__img" src="<?php echo get_theme_file_uri('dist/assets/images/common/starfish.png'); ?>" alt="ヒトデの絵">
+                    <img class="nav__img" src="<?php echo get_theme_file_uri(''); ?>/dist/assets/images/common/starfish.png" alt="ヒトデの絵">
                     <a href="<?php echo esc_url(home_url('/campaign')); ?>">キャンペーン</a>
                   </li>
 
                   <?php
                   $terms = get_terms('campaign_category'); // タクソノミースラッグを指定
-                  foreach ($terms as $term) {
-                    echo '<li class="nav__item"><a href="' . get_term_link($term) . '">' . $term->name . '</a></li>';
-                  }
+                  foreach ($terms as $term):
+                  ?>
+                    <li class="nav__item"><a href="<?php echo get_term_link($term); ?>"><?php echo $term->name; ?></a></li>
+                  <?php
+                  endforeach;
                   ?>
 
                   <li class="nav__item nav__item--page-link">
-                    <img class="nav__img" src="<?php echo get_theme_file_uri('dist/assets/images/common/starfish.png'); ?>" alt="ヒトデの絵">
+                    <img class="nav__img" src="<?php echo get_theme_file_uri(''); ?>/dist/assets/images/common/starfish.png" alt="ヒトデの絵">
                     <a href="<?php echo esc_url(home_url('/about-us')); ?>">私たちについて</a>
                   </li>
                 </ul>
@@ -149,7 +165,7 @@
               <div class="nav__second">
                 <ul class="nav__items">
                   <li class="nav__item nav__item--page-link">
-                    <img class="nav__img" src="<?php echo get_theme_file_uri('dist/assets/images/common/starfish.png'); ?>" alt="ヒトデの絵">
+                    <img class="nav__img" src="<?php echo get_theme_file_uri(''); ?>/dist/assets/images/common/starfish.png" alt="ヒトデの絵">
                     <a href="<?php echo esc_url(home_url('/information')); ?>">ダイビング情報</a>
                   </li>
 
@@ -166,7 +182,7 @@
                   </li>
 
                   <li class="nav__item nav__item--page-link">
-                    <img class="nav__img" src="<?php echo get_theme_file_uri('dist/assets/images/common/starfish.png'); ?>" alt="ヒトデの絵">
+                    <img class="nav__img" src="<?php echo get_theme_file_uri(''); ?>/dist/assets/images/common/starfish.png" alt="ヒトデの絵">
                     <a href="<?php echo esc_url(home_url('/blog')); ?>">ブログ</a>
                   </li>
                 </ul>
@@ -177,12 +193,12 @@
               <div class="nav__third">
                 <ul class="nav__items">
                   <li class="nav__item nav__item--page-link">
-                    <img class="nav__img" src="<?php echo get_theme_file_uri('dist/assets/images/common/starfish.png'); ?>" alt="ヒトデの絵">
+                    <img class="nav__img" src="<?php echo get_theme_file_uri(''); ?>/dist/assets/images/common/starfish.png" alt="ヒトデの絵">
                     <a href="<?php echo esc_url(home_url('/voice')); ?>">お客様の声</a>
                   </li>
 
                   <li class="nav__item nav__item--page-link">
-                    <img class="nav__img" src="<?php echo get_theme_file_uri('dist/assets/images/common/starfish.png'); ?>" alt="ヒトデの絵">
+                    <img class="nav__img" src="<?php echo get_theme_file_uri(''); ?>/dist/assets/images/common/starfish.png" alt="ヒトデの絵">
                     <a href="<?php echo esc_url(home_url('/price')); ?>">料金一覧</a>
                   </li>
 
@@ -203,27 +219,27 @@
               <div class="nav__fourth">
                 <ul class="nav__items">
                   <li class="nav__item nav__item--page-link">
-                    <img class="nav__img" src="<?php echo get_theme_file_uri('dist/assets/images/common/starfish.png'); ?>" alt="ヒトデの絵">
+                    <img class="nav__img" src="<?php echo get_theme_file_uri(''); ?>/dist/assets/images/common/starfish.png" alt="ヒトデの絵">
                     <a href="<?php echo esc_url(home_url('/faq')); ?>">よくある質問</a>
                   </li>
 
                   <li class="nav__item nav__item--page-link">
-                    <img class="nav__img" src="<?php echo get_theme_file_uri('dist/assets/images/common/starfish.png'); ?>" alt="ヒトデの絵">
+                    <img class="nav__img" src="<?php echo get_theme_file_uri(''); ?>/dist/assets/images/common/starfish.png" alt="ヒトデの絵">
                     <a href="<?php echo esc_url(home_url('/sitemap')); ?>">サイトマップ</a>
                   </li>
 
                   <li class="nav__item nav__item--page-link">
-                    <img class="nav__img" src="<?php echo get_theme_file_uri('dist/assets/images/common/starfish.png'); ?>" alt="ヒトデの絵">
+                    <img class="nav__img" src="<?php echo get_theme_file_uri(''); ?>/dist/assets/images/common/starfish.png" alt="ヒトデの絵">
                     <a href="<?php echo esc_url(home_url('/privacypolicy')); ?>">プライバシー<br class="nav__br">ポリシー</a>
                   </li>
 
                   <li class="nav__item nav__item--page-link">
-                    <img class="nav__img" src="<?php echo get_theme_file_uri('dist/assets/images/common/starfish.png'); ?>" alt="ヒトデの絵">
+                    <img class="nav__img" src="<?php echo get_theme_file_uri(''); ?>/dist/assets/images/common/starfish.png" alt="ヒトデの絵">
                     <a href="<?php echo esc_url(home_url('/terms-of-service')); ?>">利用規約</a>
                   </li>
 
                   <li class="nav__item nav__item--page-link">
-                    <img class="nav__img" src="<?php echo get_theme_file_uri('dist/assets/images/common/starfish.png'); ?>" alt="ヒトデの絵">
+                    <img class="nav__img" src="<?php echo get_theme_file_uri(''); ?>/dist/assets/images/common/starfish.png" alt="ヒトデの絵">
                     <a href="<?php echo esc_url(home_url('/contact')); ?>">お問合せ</a>
                   </li>
                 </ul>

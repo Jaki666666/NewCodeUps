@@ -176,7 +176,7 @@
     }
 }
 
-.campaign-card__campaign-list-explanation {
+.campaign-card__text--campaign-list p:nth-of-type(3) {
     @include mq("md") {
         margin-top: rem(27);
     }

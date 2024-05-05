@@ -1,5 +1,6 @@
 @use "global" as *;
 
+// about usページ
 .gallery {
     @include mq("md") {
         position: relative;

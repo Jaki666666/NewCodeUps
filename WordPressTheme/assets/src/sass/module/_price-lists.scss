@@ -1,5 +1,6 @@
 @use "global" as *;
 
+// priceページ
 .price-lists__price-list {
     @include mq("md") {
         display: flex;

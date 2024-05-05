@@ -24,8 +24,12 @@
     }
 }
 
-.blog-detail img {
+.wp-block-image img{
     aspect-ratio: 345 / 231;
+
+    @include mq("md"){
+        aspect-ratio: 700 / 468;
+    }
 }
 
 .blog-detail p {
@@ -51,7 +55,7 @@
 }
 
 .blog-detail ul:not([class]) li::before {
-    background-image: url(../images/common/starfish-green.png);
+    background-image: url(../../../dist/assets/images/common/starfish-green.png);
     max-width: rem(18);
     width: 100%;
     height: rem(18);

@@ -1,5 +1,6 @@
 @use "global" as *;
 
+// 404ページ
 .error-message {
     text-align: center;
     display: flex;
@@ -13,7 +14,6 @@
     aspect-ratio: 1 / 1;
     width: 100%;
     top: rem(-76);
-    z-index: -1;
     filter: brightness(6);
 
     @include mq("md") {

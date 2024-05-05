@@ -12,7 +12,7 @@
     <div class="content sub-page-content">
         <div class="content__inner inner">
             <div class="content__error-message error-message">
-                <img src="<?php echo get_theme_file_uri('dist/assets/images/common/whale-404.png'); ?>" alt="くじらの絵">
+                <img src="<?php echo get_theme_file_uri(''); ?>/dist/assets/images/common/whale-404.png" alt="くじらの絵">
 
                 <p class="error-message__number">404</p>
                 <p class="error-message__apology">申し訳ありません。<br>

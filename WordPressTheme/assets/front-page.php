@@ -4,8 +4,7 @@
 <main>
     <!-- mv -->
     <div class="mv top-mv">
-        <?php for ($i = 1; $i <= 4; $i++) : ?>
-            <?php
+        <?php for ($i = 1; $i <= 4; $i++) :
             // sp-image と pc-image のフィールド名
             $sp_image_field = 'sp-image_' . $i;
             $pc_image_field = 'pc-image_' . $i;
@@ -24,18 +23,17 @@
 
             // pc-image の画像のalt属性を取得
             $pc_image_alt = get_post_meta($pc_image_id, '_wp_attachment_image_alt', true);
-            ?>
+        ?>
 
             <picture class="mv__picture">
                 <?php if ($sp_image_url) : ?>
                     <source srcset="<?php echo esc_url($sp_image_url); ?>" media="(max-width: 767px)">
-                <?php endif; ?>
-                <?php if ($pc_image_url) : ?>
+                <?php endif;
+                if ($pc_image_url) : ?>
                     <img src="<?php echo esc_url($pc_image_url); ?>" alt="<?php echo esc_attr($pc_image_alt); ?>">
                 <?php endif; ?>
             </picture>
         <?php endfor; ?>
-
 
         <div class="mv__title">
             <h2 class="mv__main-title">Odyssey</h2>
@@ -99,18 +97,20 @@
                                             $terms = get_the_terms($post_id, 'campaign_category');
 
                                             // カテゴリーが存在する場合に処理
-                                            if ($terms && !is_wp_error($terms)) {
-                                                echo '<p class="campaign-card__category">';
-                                                foreach ($terms as $term) {
-                                                    // ターム名やリンクなどの情報を取得
-                                                    $term_name = $term->name;
-                                                    $term_link = get_term_link($term);
+                                            if ($terms && !is_wp_error($terms)) : ?>
+                                                <p class="campaign-card__category">
+                                                    <?php foreach ($terms as $term) :
+                                                        // ターム名やリンクなどの情報を取得
+                                                        $term_name = $term->name;
+                                                        $term_link = get_term_link($term);
 
-                                                    // ここで取得した情報を span タグ内に表示
-                                                    echo esc_html($term_name);
-                                                }
-                                                echo '</p>';
-                                            }
+                                                        // ここで取得した情報を span タグ内に表示
+                                                        echo esc_html($term_name);
+                                                    endforeach;
+                                                    ?>
+                                                </p>
+                                            <?php
+                                            endif;
                                             ?>
                                         </div>
                                         <p class="campaign-card__title"><?php the_title(); ?></p>
@@ -124,14 +124,14 @@
                                     </div>
                                 </div>
                             </div>
-                    <?php
+                        <?php
                         endwhile;
-
                         // メインのクエリをリセット
                         wp_reset_postdata();
-                    else :
-                        // 記事が存在しない場合の処理
-                        echo '記事がありません。';
+                    else : ?>
+                        <!-- 記事が存在しない場合の処理 -->
+                        <p>記事がありません。</p>
+                    <?php
                     endif;
                     ?>
                 </div>
@@ -149,7 +149,7 @@
     <!-- about us -->
     <section class="about-us top-about-us" id="about-us">
         <div class="about-us__inner inner">
-            <img class="about-us__decoration" src="<?php echo get_theme_file_uri('dist/assets/images/common/coral.png'); ?>" alt="サンゴの絵">
+            <img class="about-us__decoration" src="<?php echo get_theme_file_uri(''); ?>/dist/assets/images/common/coral.png" alt="サンゴの絵">
 
             <div class="about-us__section-title section-title">
                 <p class="section-title__english"><span class="js-initial">A</span><span>bout us</span></p>
@@ -158,7 +158,7 @@
 
             <div class="about-us__content">
                 <div class="about-us__img-wrapper">
-                    <img src="<?php echo get_theme_file_uri('dist/assets/images/common/about-us-img-right-pc.jpg'); ?>" alt="水中を漂う白いクラゲ">
+                    <img src="<?php echo get_theme_file_uri(''); ?>/dist/assets/images/common/about-us-img-right-pc.jpg" alt="水中を漂う白いクラゲ">
                 </div>
 
                 <div class="about-us__text">
@@ -192,8 +192,7 @@
             <div class="information__content">
                 <div class="swiper js-information-swiper">
                     <div class="swiper-wrapper">
-                        <?php for ($i = 1; $i <= 4; $i++) : ?>
-                            <?php
+                        <?php for ($i = 1; $i <= 4; $i++) :
                             // 画像の ID を取得
                             $image_id = get_field('information-image_' . $i);
 
@@ -201,13 +200,12 @@
                             if ($image_id) :
                                 $image_url = wp_get_attachment_image_url($image_id, 'full');
                                 $image_alt = get_post_meta($image_id, '_wp_attachment_image_alt', true);
-                            ?>
+                        ?>
                                 <div class="swiper-slide">
                                     <img class="information__img" src="<?php echo esc_url($image_url); ?>" alt="<?php echo esc_attr($image_alt); ?>">
                                 </div>
-                            <?php endif; ?>
-                        <?php endfor; ?>
-
+                        <?php endif;
+                        endfor; ?>
                     </div>
                     <div class="swiper-pagination"></div>
                 </div>
@@ -231,7 +229,7 @@
     <!-- blog -->
     <section class="blog top-blog" id="blog">
         <div class="blog__inner inner">
-            <img class="blog__decoration" src="<?php echo get_theme_file_uri('dist/assets/images/common/a-school-of-fish-blog.png'); ?>" alt="魚群の絵">
+            <img class="blog__decoration" src="<?php echo get_theme_file_uri(''); ?>/dist/assets/images/common/a-school-of-fish-blog.png" alt="魚群の絵">
 
             <div class="blog__section-title section-title">
                 <p class="section-title__english"><span class="js-initial">B</span><span>log</span></p>
@@ -245,7 +243,7 @@
                         'post_type'      => 'post', // 通常の投稿タイプの指定
                         'posts_per_page' => 3
                     )
-                );                
+                );
 
                 if ($blog_query->have_posts()) :
                     while ($blog_query->have_posts()) :
@@ -256,7 +254,7 @@
                                 <img class="blog-card__img" src="<?php the_post_thumbnail_url('full'); ?>" alt="<?php echo esc_attr(get_post_meta(get_post_thumbnail_id(), '_wp_attachment_image_alt', true)); ?>">
 
                                 <div class="blog-card__text">
-                                    <time class="blog-card__date" datetime="<?php echo get_the_date('Y-m-d'); ?>"><?php echo get_the_date(); ?></time>
+                                    <time class="blog-card__date" datetime="<?php the_time('Y-m-d H:i'); ?>"><?php the_time('Y-m-d H:i'); ?></time>
                                     <p class="blog-card__title"><?php the_title(); ?></p>
                                     <div class="blog-card__bottom-wrapper">
                                         <p class="blog-card__explanation"><?php the_excerpt(); ?></p>
@@ -264,14 +262,14 @@
                                 </div>
                             </a>
                         </div>
-                <?php
+                    <?php
                     endwhile;
-
                     // メインのクエリをリセット
                     wp_reset_postdata();
-                else :
-                    // 記事が存在しない場合の処理
-                    echo '記事がありません。';
+                else : ?>
+                    <!-- 記事が存在しない場合の処理 -->
+                    <p>記事がありません。</p>
+                <?php
                 endif;
                 ?>
             </div>
@@ -288,7 +286,7 @@
     <!-- voice -->
     <section class="voice top-voice" id="voice">
         <div class="voice__inner inner">
-            <img class="voice__decoration-fish" src="<?php echo get_theme_file_uri('dist/assets/images/common/a-school-of-fish-voice.png'); ?>" alt="魚群の絵">
+            <img class="voice__decoration-fish" src="<?php echo get_theme_file_uri(''); ?>/dist/assets/images/common/a-school-of-fish-voice.png" alt="魚群の絵">
 
             <div class="voice__section-title section-title">
                 <p class="section-title__english"><span class="js-initial">V</span><span>oice</span></p>
@@ -296,7 +294,7 @@
             </div>
 
             <div class="voice__voice-cards voice-cards">
-                <img class="voice-cards__decoration-seahorse" src="<?php echo get_theme_file_uri('dist/assets/images/common/seahorse.jpg'); ?>" alt="タツノオトシゴの絵">
+                <img class="voice-cards__decoration-seahorse" src="<?php echo get_theme_file_uri(''); ?>/dist/assets/images/common/seahorse.jpg" alt="タツノオトシゴの絵">
 
                 <?php
                 $voice_query = new WP_Query(
@@ -323,18 +321,19 @@
                                         $terms = get_the_terms($post_id, 'voice_category');
 
                                         // カテゴリーが存在する場合に処理
-                                        if ($terms && !is_wp_error($terms)) {
-                                            echo '<p class="voice-card__category">';
-                                            foreach ($terms as $term) {
-                                                // ターム名やリンクなどの情報を取得
-                                                $term_name = $term->name;
-                                                $term_link = get_term_link($term);
+                                        if ($terms && !is_wp_error($terms)) : ?>
+                                            <p class="voice-card__category">
+                                                <?php foreach ($terms as $term) :
+                                                    // ターム名やリンクなどの情報を取得
+                                                    $term_name = $term->name;
+                                                    $term_link = get_term_link($term);
 
-                                                // ここで取得した情報を span タグ内に表示
-                                                echo  esc_html($term_name);
-                                            }
-                                            echo '</p>';
-                                        }
+                                                    // ここで取得した情報を span タグ内に表示
+                                                    echo  esc_html($term_name);
+                                                endforeach; ?>
+                                            </p>
+                                        <?php
+                                        endif;
                                         ?>
                                     </div>
 
@@ -351,14 +350,14 @@
                                 <p class="voice-card__explanation"><?php the_excerpt(); ?></p>
                             </div>
                         </div>
-                <?php
+                    <?php
                     endwhile;
-
                     // メインのクエリをリセット
                     wp_reset_postdata();
-                else :
-                    // 記事が存在しない場合の処理
-                    echo '記事がありません。';
+                else : ?>
+                    <!-- 記事が存在しない場合の処理 -->
+                    <p>記事がありません。</p>
+                <?php
                 endif;
                 ?>
             </div>
@@ -375,7 +374,7 @@
     <!-- price -->
     <section class="price top-price" id="price">
         <div class="price__inner inner">
-            <img class="price__decoration" src="<?php echo get_theme_file_uri('dist/assets/images/common/a-school-of-fish-price.png'); ?>" alt="魚群の絵">
+            <img class="price__decoration" src="<?php echo get_theme_file_uri(''); ?>/dist/assets/images/common/a-school-of-fish-price.png" alt="魚群の絵">
 
             <div class="price__section-title section-title">
                 <p class="section-title__english"><span class="js-initial">P</span><span>rice</span></p>
@@ -385,8 +384,8 @@
             <div class="price__content">
                 <div class="price__animation-img animation-img">
                     <picture class="price__picture">
-                        <source srcset="<?php echo get_theme_file_uri('dist/assets/images/common/price.jpg'); ?>" media="(max-width: 767.5px)">
-                        <img id="price-animation-img" src="<?php echo get_theme_file_uri('dist/assets/images/common/price-pc.jpg'); ?>" alt="光が差す中水面に向かって泳ぐダイバー">
+                        <source srcset="<?php echo get_theme_file_uri(''); ?>/dist/assets/images/common/price.jpg" media="(max-width: 767.5px)">
+                        <img id="price-animation-img" src="<?php echo get_theme_file_uri(''); ?>/dist/assets/images/common/price-pc.jpg" alt="光が差す中水面に向かって泳ぐダイバー">
                     </picture>
 
                     <div class="price__bg" id="price-bg-animation"></div>
@@ -397,48 +396,48 @@
                     <dl class="price__list">
                         <?php
                         $licenseDetail = SCF::get('license-detail', 186);
-                        foreach ($licenseDetail as $fields) {
+                        foreach ($licenseDetail as $fields) :
                         ?>
                             <dt class="price__course"><?php echo $fields['license-course']; ?></dt>
                             <dd class="price__price"><?php echo $fields['license-price']; ?></dd>
                         <?php
-                        } ?>
+                        endforeach; ?>
                     </dl>
 
                     <p class="price__list-title">体験ダイビング</p>
                     <dl class="price__list">
                         <?php
                         $experienceDetail = SCF::get('experience-detail', 186);
-                        foreach ($experienceDetail as $fields) {
+                        foreach ($experienceDetail as $fields) :
                         ?>
                             <dt class="price__course"><?php echo $fields['experience-course']; ?></dt>
                             <dd class="price__price"><?php echo $fields['experience-price']; ?></dd>
                         <?php
-                        } ?>
+                        endforeach; ?>
                     </dl>
 
                     <p class="price__list-title">ファンダイビング</p>
                     <dl class="price__list">
                         <?php
                         $funDetail = SCF::get('fun-detail', 186);
-                        foreach ($funDetail as $fields) {
+                        foreach ($funDetail as $fields) :
                         ?>
                             <dt class="price__course"><?php echo $fields['fun-course']; ?></dt>
                             <dd class="price__price"><?php echo $fields['fun-price']; ?></dd>
                         <?php
-                        } ?>
+                        endforeach; ?>
                     </dl>
 
                     <p class="price__list-title">スペシャルダイビング</p>
                     <dl class="price__list">
                         <?php
                         $specialDetail = SCF::get('special-detail', 186);
-                        foreach ($specialDetail as $fields) {
+                        foreach ($specialDetail as $fields) :
                         ?>
                             <dt class="price__course"><?php echo $fields['special-course']; ?></dt>
                             <dd class="price__price"><?php echo $fields['special-price']; ?></dd>
                         <?php
-                        } ?>
+                        endforeach; ?>
                     </dl>
                 </div>
             </div>
@@ -448,51 +447,6 @@
                 <a class="btn" href="<?php echo esc_url(home_url('/price')); ?>">
                     <span class="btn__text">View more</span>
                 </a>
-            </div>
-        </div>
-    </section>
-
-    <!-- contact -->
-    <section class="contact top-contact" id="contact">
-        <div class="contact__inner inner">
-
-            <div class="contact__wrapper">
-                <div class="contact__first-half">
-                    <img class="contact__decoration" src="<?php echo get_theme_file_uri('dist/assets/images/common/a-school-of-fish-contact.png'); ?>" alt="魚群の絵">
-
-                    <div class="contact__site-title-wrapper">
-                        <img class="contact__site-title" src="<?php echo get_theme_file_uri('dist/assets/images/common/blue-grow.png'); ?>" alt="サイトロゴ">
-                    </div>
-
-                    <div class="contact__information">
-                        <div class="contact__information-text">
-                            <p class="contact__address">沖縄県那覇市1-1</p>
-                            <p class="contact__phone-number">TEL:0120-000-0000</p>
-                            <p class="contact__opening-hours">営業時間:8:30-19:00</p>
-                            <p class="contact__day-off">定休日:毎週火曜日</p>
-                        </div>
-
-                        <div class="contact__map-wrapper">
-                            <iframe class="contact__map" src="https://www.google.com/maps/embed?pb=!1m16!1m12!1m3!1d28635.43254523145!2d127.66045352449882!3d26.215244582433137!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!2m1!1z5rKW57iE55yM6YKj6KaH5biCMS0x!5e0!3m2!1sja!2sjp!4v1697657779060!5m2!1sja!2sjp" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="contact__second-half">
-                    <div class="contact__section-title section-title">
-                        <p class="section-title__english section-title__english--contact">C<span>ontact</span></p>
-                        <h2 class="section-title__japanese section-title__japanese--contact">お問合せ</h2>
-                    </div>
-
-                    <p class="contact__explanation">ご予約・お問合せはコチラ</p>
-
-                    <!-- セクション内ボタン -->
-                    <div class="contact__btn-wrapper">
-                        <a class="btn" href="<?php echo esc_url(home_url('/contact')); ?>">
-                            <span class="btn__text">Contact us</span>
-                        </a>
-                    </div>
-                </div>
             </div>
         </div>
     </section>

@@ -8,6 +8,7 @@
     transition: opacity 0.3s, border-radius 0.3s;
     border-radius: rem(50);
     border: rem(1.5) solid $blue2;
+    z-index:0;
 }
 
 .blog-card:hover {

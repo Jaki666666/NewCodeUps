@@ -14,7 +14,7 @@
 
 .top-blog::before {
     @include mq("md") {
-        background-image: url(../images/common/blog-bg.jpg);
+        background-image: url(../../../dist/assets/images/common/blog-bg.jpg);
         display: block;
         position: absolute;
         content: "";

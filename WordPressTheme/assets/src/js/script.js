@@ -235,6 +235,7 @@ jQuery(function ($) { // この中であればWordpressでも「$」が使用可
         if (window.innerWidth >= 768) {
             // 768px以上の場合に実行する処理をここに書く
             if (hamburger.classList.contains('hamburger--opened') == true) {
+                header.classList.remove('header--opened');
                 hamburger.classList.remove('hamburger--opened')
                 drawerMenu.classList.remove('drawer--opened')
                 body.classList.remove('body--opened');
@@ -450,21 +451,21 @@ jQuery(function ($) { // この中であればWordpressでも「$」が使用可
 
     // ＝＝＝＝＝＝別ページのidに飛んだ時の処理＝＝＝＝＝＝
     document.addEventListener("DOMContentLoaded", function () {
-        // Parse the URL fragment
-        var targetId = window.location.hash.substring(1); // Exclude the '#' character
+        // ページ内リンクでの#以降の部分を解析する
+        var targetId = window.location.hash.substring(1); 
 
         if (targetId) {
-            // Find the target element
+            // 対象要素を見つける
             var targetElement = document.getElementById(targetId);
 
             if (targetElement) {
-                // Calculate the target scroll position (adjust as needed)
+                // 対象のスクロール位置を計算する（必要に応じて調整）
                 var targetScrollPosition = targetElement.offsetTop - 100;
 
-                // Scroll to the target position
+                // 対象の位置までスクロールする
                 window.scrollTo({
                     top: targetScrollPosition,
-                    behavior: "smooth" // Add smooth scrolling effect
+                    behavior: "smooth" // スムーズなスクロールにする
                 });
             }
         }
@@ -494,8 +495,7 @@ jQuery(function ($) { // この中であればWordpressでも「$」が使用可
     $(function () {
         //クリックしたときのファンクションをまとめて指定
         $('.js-information-link').click(function () {
-            //.index()を使いクリックされたタブが何番目かを調べ、
-            // indexという変数に代入します。
+            //.index()を使いクリックされたタブが何番目かを調べ、indexという変数に代入します。
             var index = $('.js-information-link').index(this);
             if (index >= 3) {
                 index -= 3
@@ -517,8 +517,7 @@ jQuery(function ($) { // この中であればWordpressでも「$」が使用可
 
         //クリックしたときのファンクションをまとめて指定
         $('.tab__item').click(function () {
-            //.index()を使いクリックされたタブが何番目かを調べ、
-            // indexという変数に代入。
+            //.index()を使いクリックされたタブが何番目かを調べ、indexという変数に代入。
             var index = $('.tab__item').index(this);
 
             //コンテンツを一度すべて非表示にし、

@@ -5,7 +5,7 @@ function enqueue_custom_scripts_and_styles()
     wp_enqueue_style('google-fonts', 'https://fonts.googleapis.com/css2?family=Gotu&family=Noto+Sans+JP:wght@400;500;700&display=swap');
 
     // Custom CSS
-    wp_enqueue_style('custom-css', get_theme_file_uri('dist/assets/css/style.css'));
+    wp_enqueue_style('custom-css', get_theme_file_uri('WordPressTheme/assets/css/style.css'));
 
     // jQuery
     wp_enqueue_script('jquery', 'https://code.jquery.com/jquery-3.6.0.js', array(), null, true);
@@ -19,7 +19,7 @@ function enqueue_custom_scripts_and_styles()
     wp_enqueue_script('swiper-js', 'https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js', array(), null, true);
 
     // Custom JavaScript
-    wp_enqueue_script('custom-js', get_theme_file_uri('dist/assets/js/script.js'), array(), null, true);
+    wp_enqueue_script('custom-js', get_theme_file_uri('WordPressTheme/assets/js/script.js'), array(), null, true);
 }
 
 add_action('wp_enqueue_scripts', 'enqueue_custom_scripts_and_styles');
@@ -115,6 +115,21 @@ function add_404_body_class($classes)
 }
 add_filter('body_class', 'add_404_body_class');
 
+// campaignの抜粋文の設定
+function campaign_change_excerpt_length( $length ) {
+    // 現在の投稿の投稿タイプを取得
+    $post_type = get_post_type();
+
+    // 現在の投稿が通常投稿タイプであるかを確認
+    if ( 'campaign' === $post_type ) {
+        return 72; // 通常投稿の抜粋の長さを 72 文字に設定
+    } else {
+        return $length; // それ以外の場合は既定の抜粋の長さを使用
+    }
+}
+add_filter( 'excerpt_length', 'campaign_change_excerpt_length', 999 );
+
+
 // blogの抜粋文の設定
 function blog_change_excerpt_length( $length ) {
     // 現在の投稿の投稿タイプを取得
@@ -172,5 +187,6 @@ function my_unregister_taxonomies()
     return true;
 }
 add_action('init', 'my_unregister_taxonomies');
+
 
 
